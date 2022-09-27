@@ -1,0 +1,130 @@
+img{
+	object-fit: cover;
+}
+
+.home{
+	background: black;
+}
+
+.presentation{
+	font-size: 60px;
+	color: white;
+}
+
+.box {
+	color: black;
+	background: white;
+	padding: 15px;
+	border-radius: 15px;
+	width: 90%;
+
+}
+
+fieldset {
+	border: 3px solid black;
+
+}
+
+.navlogo {
+	text-align: center;
+}
+
+.logo {
+	text-align: center;
+	height: 18px;
+}
+
+legend {
+
+	text-align: center;
+	border-radius: 6px;
+	color: black;
+}
+
+.inputBox {
+	position: relative;
+}
+
+.inputUser {
+	background: none;
+	border: none;
+	border-bottom: 1px solid black;
+	outline: none;
+	color: black;
+	font-size: 15px;
+	width: 100%;
+	letter-spacing: 2px;
+	margin-top: 30px;
+}
+
+.labelInput {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	pointer-events: none;
+	transition: .5s;
+	margin-top: 30px;
+}
+
+.inputUser:focus~.labelInput,
+.inputUser:valid~.labelInput {
+	top: -20px;
+	font-size: 12px;
+	color: black;
+}
+
+.father {
+	position: relative;
+}
+
+.submit {
+	background: gray;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border: none;
+	padding: 15px;
+	color: black;
+	font-size: 15px;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-top: 30px;
+
+
+}
+
+
+
+.submits {
+	background: #201713;
+	width: 100%;
+	border: none;
+	padding: 15px;
+	color: gray;
+	font-size: 15px;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-top: 30px;
+
+	text-align: center;
+}
+
+.submitss {
+	background: white;
+	width: 100%;
+	border: none;
+	padding: 15px;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-top: 30px;
+
+	text-align: center;
+
+}
+
+#submit:hover {
+	background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+}
+
