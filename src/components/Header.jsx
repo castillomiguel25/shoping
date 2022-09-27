@@ -36,7 +36,7 @@ const Header = ({ cart }) => {
       </div>
       <div className="navbar-right">
         <ul>
-          <li className="navbar-email">miguelangelcastillo947@gmail.com</li>
+          {/* <li className="navbar-email">miguelangelcastillo947@gmail.com</li> */}
           <li
             className="navbar-shopping-cart"
             onClick={() => setToggleOrders(!toggleOrders)}
