@@ -80,7 +80,7 @@ function Logins() {
           <div className='col-lg-4 mt-5'>
             <Carousel />
           </div>
-          <div className='col-12 text-center'>
+          <div className='col-12 text-center mt-3'>
               <Canvas />
           </div>
         </div>
