@@ -1,75 +1,52 @@
 import React, { useState } from "react";
-import Home from '../pages/Home';
-import House from '../pages/House';
-
-
-
-
+import Home from "../pages/Home";
+import House from "../pages/House";
 // import Register from "../register/Register"
-import '../styles/global.css';
-
+import "../styles/global.css";
 import firebaseApp from "../Callfirebase/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, getDoc } from "firebase/firestore"
-
-
-const auth = getAuth(firebaseApp)
-const firestore = getFirestore(firebaseApp)
-
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+const auth = getAuth(firebaseApp);
+const firestore = getFirestore(firebaseApp);
 
 function App() {
-    
-    
-    // const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  async function getRol(uid) {
+    const docuRef = doc(firestore, `usuarios/${uid}`);
+    const docucif = await getDoc(docuRef);
+    const information = docucif.data().rol;
+    return information;
+  }
 
-    async function getRol(uid) {
-
-        const docuRef = doc(firestore, `usuarios/${uid}`);
-        const docucif = await getDoc(docuRef);
-        const information = docucif.data().rol;
-        return information;
-    }
-
-    function rolAndFirebase (usuariofirebase) {
-        getRol(usuariofirebase.uid).then((rol) => {
-            const userData = {
-                uid: usuariofirebase.uid,
-                email: usuariofirebase.email,
-                rol: rol,
-            };
-            setUser(userData);
-        });
-    }
-
-    onAuthStateChanged(auth, (usuariofirebase) => {
-        if (usuariofirebase) {
-           //userss
-
-           if (!user) {
-            rolAndFirebase(usuariofirebase);
-           }
-        } else {
-            setUser(null);
-        }
+  function rolAndFirebase(usuariofirebase) {
+    getRol(usuariofirebase.uid).then((rol) => {
+      const userData = {
+        uid: usuariofirebase.uid,
+        email: usuariofirebase.email,
+        rol: rol,
+      };
+      setUser(userData);
     });
-
-
-    const [user, setUser] = useState(null);
+  }
   onAuthStateChanged(auth, (usuariofirebase) => {
-      if (usuariofirebase) {
-          setUser(usuariofirebase);
-      } else {
-          setUser(null);
+    if (usuariofirebase) {
+      //userss
+      if (!user) {
+        rolAndFirebase(usuariofirebase);
       }
+    } else {
+      setUser(null);
+    }
   });
-    return (
-       
-                <>{user ? <Home user={user} /> : <House />} </>
-            
-       
-    )
-    
-    
+  const [user, setUser] = useState(null);
+  onAuthStateChanged(auth, (usuariofirebase) => {
+    if (usuariofirebase) {
+      setUser(usuariofirebase);
+    } else {
+      setUser(null);
+    }
+  });
+  return <>{user ? <Home user={user} /> : <House />} </>;
 }
 
 // const App = () => {
@@ -95,9 +72,8 @@ function App() {
 //                 </Layout>
 //             </Router>
 //         </AppContext.Provider>
-        
+
 //     );
 // }
-
 
 export default App;
