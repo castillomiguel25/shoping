@@ -9,8 +9,6 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
 
-
-
 function App() {
   // const [user, setUser] = useState(null);
   async function getRol(uid) {
