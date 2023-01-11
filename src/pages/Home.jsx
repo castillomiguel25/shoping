@@ -6,6 +6,12 @@ import Layout from '../containers/Layout';
 
 
 
+
+
+
+
+
+
 const Home = () => {
 	const initialState = useInitialState();
   return (
